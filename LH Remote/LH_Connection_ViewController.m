@@ -20,13 +20,13 @@
     _textMessage.delegate = self;
     _ipTextField.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
-    [self initWebSocketRXNotification];
+    [self initConnectionNotification];
     
 //    ConnectionImage = [UIImage imageNamed: @"red.png"];
 //    
 //    _connectStatus=[[UIImageView alloc] initWithImage:ConnectionImage];
 //    [self.view addSubview:_connectStatus];
-//    _connectStatus.frame = CGRectMake(60, 10, _connectStatus.frame.size.width/2, _connectStatus.frame.size.height/2);;
+//    _connectStatus.frame = CGRectMake(60, 10, _connectStatus.frame.size.width/2, _connectStatus.frame.size.height/2);
 //    
 //    theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
 //    theAnimation.duration=1.5;
@@ -55,10 +55,10 @@
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
     [msgDictionary setObject:[NSNumber numberWithInt:1] forKey:@"NotificationID"];
-    [msgDictionary setObject:@"" forKey:@"NotificationMSG"];
+    [msgDictionary setObject:_ipTextField.text forKey:@"NotificationMSG"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"JoystickNotification" object:msgDictionary];
-    NSLog(@"TEST");
+    
 }
 
 - (IBAction)Clear:(id)sender {
@@ -85,28 +85,27 @@
 
 
 //NSNotification receiveWebSocket
-- (void) deallocWebSocketRXNotification {
+- (void) deallocConnectionNotification {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) initWebSocketRXNotification {
+- (void) initConnectionNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveWebSocketRXNotification:)
-                                                 name:@"receiveWebSocket"
+                                             selector:@selector(receiveConnectionNotification:)
+                                                 name:@"ConnectionNotification"
                                                object:nil];
 }
 
-- (void) receiveWebSocketRXNotification:(NSNotification *) notification {
-    if ([[notification name] isEqualToString:@"receiveWebSocket"]){
+- (void) receiveConnectionNotification:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"ConnectionNotification"]){
         
         NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] initWithDictionary:(NSMutableDictionary*)[notification object]];
         
-        int idInt = [[msgDictionary objectForKey:@"id"] intValue];
-        NSString *Msg = [msgDictionary objectForKey:@"Msg"];
+        int NotificationID = [[msgDictionary objectForKey:@"NotificationID"] intValue];
+        NSString *NotificationMSG = [msgDictionary objectForKey:@"NotificationMSG"];
         
-        NSLog(@"idInt: %d",idInt);
         
-        switch (idInt) {
+        switch (NotificationID) {
             case 1:
                 _WebSocketMessageField.text = [NSString stringWithFormat:@"Socket is open for business.\n%@",_WebSocketMessageField.text];
                 //ConnectionImage = [UIImage imageNamed: @"green.png"];
@@ -121,7 +120,7 @@
                 _WebSocketMessageField.text = [NSString stringWithFormat:@"Oops. An error occurred.\n%@",_WebSocketMessageField.text];
                 break;
             case 4:
-                _WebSocketMessageField.text = [NSString stringWithFormat:@"Did receive message: %@\n%@",Msg,_WebSocketMessageField.text];
+                _WebSocketMessageField.text = [NSString stringWithFormat:@"Did receive message: %@\n%@",NotificationMSG,_WebSocketMessageField.text];
                 break;
             case 5:
                 _WebSocketMessageField.text = [NSString stringWithFormat:@"Yay! Pong was sent!\n%@",_WebSocketMessageField.text];

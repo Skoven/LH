@@ -45,10 +45,10 @@
 {
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
-    [msgDictionary setObject:[NSNumber numberWithInt:1] forKey:@"id"];
-    [msgDictionary setObject:@"" forKey:@"Msg"];
+    [msgDictionary setObject:[NSNumber numberWithInt:1] forKey:@"NotificationID"];
+    [msgDictionary setObject:@"" forKey:@"NotificationMSG"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveWebSocket" object:msgDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectionNotification" object:msgDictionary];
     
     NSLog(@"TEST2");
 }
@@ -60,10 +60,10 @@
 {
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
-    [msgDictionary setObject:[NSNumber numberWithInt:2] forKey:@"id"];
-    [msgDictionary setObject:@"" forKey:@"Msg"];
+    [msgDictionary setObject:[NSNumber numberWithInt:2] forKey:@"NotificationID"];
+    [msgDictionary setObject:@"" forKey:@"NotificationMSG"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveWebSocket" object:msgDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectionNotification" object:msgDictionary];
 }
 
 /**
@@ -74,12 +74,10 @@
 {
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
-    [msgDictionary setObject:[NSNumber numberWithInt:3] forKey:@"id"];
-    [msgDictionary setObject:@"" forKey:@"Msg"];
+    [msgDictionary setObject:[NSNumber numberWithInt:3] forKey:@"NotificationID"];
+    [msgDictionary setObject:@"" forKey:@"NotificationMSG"];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"receiveWebSocket"
-     object:msgDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectionNotification" object:msgDictionary];
     
 }
 
@@ -91,12 +89,10 @@
     //Hooray! I got a message to print.
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
-    [msgDictionary setObject:[NSNumber numberWithInt:4] forKey:@"id"];
-    [msgDictionary setObject:aMessage forKey:@"Msg"];
+    [msgDictionary setObject:[NSNumber numberWithInt:4] forKey:@"NotificationID"];
+    [msgDictionary setObject:aMessage forKey:@"NotificationMSG"];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"receiveWebSocket"
-     object:msgDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectionNotification" object:msgDictionary];
 }
 
 /**
@@ -114,12 +110,10 @@
 {
     NSMutableDictionary *msgDictionary = [[NSMutableDictionary alloc] init];
     
-    [msgDictionary setObject:[NSNumber numberWithInt:5] forKey:@"id"];
-    [msgDictionary setObject:@"" forKey:@"Msg"];
+    [msgDictionary setObject:[NSNumber numberWithInt:5] forKey:@"NotificationID"];
+    [msgDictionary setObject:@"" forKey:@"NotificationMSG"];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"receiveWebSocket"
-     object:msgDictionary];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectionNotification" object:msgDictionary];
 }
 
 

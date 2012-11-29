@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "LH_WebSocket.h"
+#import "MyRosbridge.h"
 
 @interface LH_Joystick_ViewController : UIViewController {
     LH_WebSocket* LH_WS;
+    MyRosbridge* myRos;
 }
+
+@property (nonatomic, retain) IBOutlet UITextField *CoordTextField;
+@property (nonatomic, retain) IBOutlet UIImageView *ballControl;
+@property (nonatomic, retain) IBOutlet UIImageView *backgroundControl;
 
 @end
