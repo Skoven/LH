@@ -318,6 +318,8 @@
 				4243B8B71667C78A00190FED /* controller@2x.png in Resources */,
 				4243B8BA1667C7A700190FED /* gear2.png in Resources */,
 				4243B8BB1667C7A700190FED /* gear2@2x.png in Resources */,
+				4281F54B1667FD5B0089D103 /* icon_goldborder_57px.png in Resources */,
+				4281F54D1667FD670089D103 /* icon_goldborder_114px.png in Resources */,
 				E180A8F21668071C005DDD68 /* arrows_4.png in Resources */,
 				E180A8F4166808EB005DDD68 /* ball.png in Resources */,
 			);
