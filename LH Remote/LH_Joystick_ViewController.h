@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LH_WebSocket.h"
 
-@interface LH_Joystick_ViewController : UIViewController
+@interface LH_Joystick_ViewController : UIViewController {
+    LH_WebSocket* LH_WS;
+}
 
 @end

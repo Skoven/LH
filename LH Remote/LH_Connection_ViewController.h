@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LH_Connection_ViewController : UIViewController
+
+@interface LH_Connection_ViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *ipTextField;
+@property (weak, nonatomic) IBOutlet UITextView *WebSocketMessageField;
+@property (weak, nonatomic) IBOutlet UITextField *textMessage;
+@property (nonatomic, retain) IBOutlet UIImageView *connectStatus;
+
+- (IBAction)Connect:(id)sender;
+- (IBAction)Clear:(id)sender;
+- (IBAction)Disconnect:(id)sender;
+- (IBAction)Send:(id)sender;
 
 @end
