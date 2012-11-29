@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 AAU. All rights reserved.
 //
 
-#import "LH_SecondViewController.h"
+#import "LH_Connection_ViewController.h"
 
-@interface LH_SecondViewController ()
+@interface LH_Connection_ViewController ()
 
 @end
 
-@implementation LH_SecondViewController
+@implementation LH_Connection_ViewController
 
 - (void)viewDidLoad
 {

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 AAU. All rights reserved.
 //
 
-#import "LH_FirstViewController.h"
+#import "LH_Joystick_ViewController.h"
 
-@interface LH_FirstViewController ()
+@interface LH_Joystick_ViewController ()
 
 @end
 
-@implementation LH_FirstViewController
+@implementation LH_Joystick_ViewController
 
 - (void)viewDidLoad
 {
