@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz4-cW-cYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="1028"/>
+            <point key="canvasLocation" x="341" y="636"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="lZY-aD-AtL">
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg2-2h-nTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="629"/>
+            <point key="canvasLocation" x="-79" y="921"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -136,6 +136,23 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="LH_Connection_ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Connection_ViewController.h"/>
+        </class>
+        <class className="LH_Joystick_ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Joystick_ViewController.h"/>
+        </class>
+        <class className="LH_Settings_ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Settings_ViewController.h"/>
+        </class>
+        <class className="LH_Status_ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Status_ViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
