@@ -36,7 +36,7 @@
                             <constraint firstAttribute="centerY" secondItem="21" secondAttribute="centerY" type="user" id="yWk-L2-m9F"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Joystick" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Joystick" image="controller.png" id="7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +74,7 @@
                             <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="40" type="user" id="yUx-Ee-KEk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Connection" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Connection" image="connection.png" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="eS5-Gs-TOz"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear2.png" id="eS5-Gs-TOz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg2-2h-nTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,8 +133,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
+        <image name="connection.png" width="28" height="20"/>
+        <image name="controller.png" width="30" height="23"/>
+        <image name="gear2.png" width="26" height="28"/>
     </resources>
     <classes>
         <class className="LH_Connection_ViewController" superclassName="UIViewController">
