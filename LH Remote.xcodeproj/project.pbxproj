@@ -47,6 +47,7 @@
 		E15B29D91667BA9700E636E9 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15B29D81667BA9700E636E9 /* second@2x.png */; };
 		E180A8F21668071C005DDD68 /* arrows_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E180A8F11668071C005DDD68 /* arrows_4.png */; };
 		E180A8F4166808EB005DDD68 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E180A8F3166808EB005DDD68 /* ball.png */; };
+		E1C81AC81669528D0024AA02 /* LH_Rosbridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C81AC71669528D0024AA02 /* LH_Rosbridge.m */; };
 		E1E0A2881667FB16009B66F1 /* LH_WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E0A2871667FB16009B66F1 /* LH_WebSocket.m */; };
 /* End PBXBuildFile section */
 
@@ -111,10 +112,10 @@
 		E15B29D41667BA9700E636E9 /* LH_Connection_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LH_Connection_ViewController.m; sourceTree = "<group>"; };
 		E15B29D61667BA9700E636E9 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		E15B29D81667BA9700E636E9 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		E180A8EE166804C8005DDD68 /* MyRosbridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRosbridge.h; sourceTree = "<group>"; };
-		E180A8EF166804C8005DDD68 /* MyRosbridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRosbridge.m; sourceTree = "<group>"; };
 		E180A8F11668071C005DDD68 /* arrows_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows_4.png; sourceTree = "<group>"; };
 		E180A8F3166808EB005DDD68 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		E1C81AC61669528D0024AA02 /* LH_Rosbridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LH_Rosbridge.h; sourceTree = "<group>"; };
+		E1C81AC71669528D0024AA02 /* LH_Rosbridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LH_Rosbridge.m; sourceTree = "<group>"; };
 		E1E0A2861667FB16009B66F1 /* LH_WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LH_WebSocket.h; sourceTree = "<group>"; };
 		E1E0A2871667FB16009B66F1 /* LH_WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LH_WebSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,12 +249,12 @@
 				4243B88B1667BFAE00190FED /* LH_Status_ViewController.m */,
 				E1E0A2861667FB16009B66F1 /* LH_WebSocket.h */,
 				E1E0A2871667FB16009B66F1 /* LH_WebSocket.m */,
-				E180A8EE166804C8005DDD68 /* MyRosbridge.h */,
-				E180A8EF166804C8005DDD68 /* MyRosbridge.m */,
-				4243B88D1667BFE100190FED /* Images */,
-				E15B29B51667BA9700E636E9 /* Supporting Files */,
+				E1C81AC61669528D0024AA02 /* LH_Rosbridge.h */,
+				E1C81AC71669528D0024AA02 /* LH_Rosbridge.m */,
 				420482501668CF7000C5FF65 /* LH_ServerNamesViewController.h */,
 				420482511668CF7000C5FF65 /* LH_ServerNamesViewController.m */,
+				4243B88D1667BFE100190FED /* Images */,
+				E15B29B51667BA9700E636E9 /* Supporting Files */,
 				420482521668CF7000C5FF65 /* MySettings.plist */,
 			);
 			path = "LH Remote";
@@ -369,6 +370,7 @@
 				4243B88C1667BFAE00190FED /* LH_Status_ViewController.m in Sources */,
 				E1E0A2881667FB16009B66F1 /* LH_WebSocket.m in Sources */,
 				420482541668CF7000C5FF65 /* LH_ServerNamesViewController.m in Sources */,
+				E1C81AC81669528D0024AA02 /* LH_Rosbridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

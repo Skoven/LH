@@ -1,15 +1,14 @@
 //
-//  MyRosbridge.m
-//  LH Websocket
+//  LH_Rosbridge.m
+//  LH Remote
 //
-//  Created by Jens Skov Damgaard on 22/11/12.
+//  Created by Jens Skov Damgaard on 30/11/12.
 //  Copyright (c) 2012 AAU. All rights reserved.
 //
 
-#import "MyRosbridge.h"
+#import "LH_Rosbridge.h"
 
-@implementation MyRosbridge
-
+@implementation LH_Rosbridge
 
 - (NSString*) advertiseTopic:(NSString*)topic Type: (NSString*) type{
     
@@ -25,6 +24,7 @@
 }
 
 - (NSString*) publishTopic:(NSString*)topic Message: (NSMutableDictionary*) msg{
+    
     
     NSMutableDictionary *myDictionary = [[NSMutableDictionary alloc] init];
     [myDictionary setObject:@"publish" forKey:@"op"];

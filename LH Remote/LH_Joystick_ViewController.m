@@ -70,6 +70,7 @@
     [self initJoystickNotification];
 
     LH_WS = [[LH_WebSocket alloc] init];
+    myRos = [[LH_Rosbridge alloc] init];
     
 }
 
@@ -161,8 +162,8 @@
     
     NSMutableDictionary *Msg_Dictionary = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *Msg_linear_Dictionary = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *Msg_angular_Dictionary = [[NSMutableDictionary alloc] init];    
-  
+    NSMutableDictionary *Msg_angular_Dictionary = [[NSMutableDictionary alloc] init];
+    
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:vel_x] forKey:@"x"];
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:0] forKey:@"y"];
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:0] forKey:@"z"];
@@ -174,11 +175,13 @@
     [Msg_Dictionary setObject:Msg_linear_Dictionary forKey:@"linear"];
     [Msg_Dictionary setObject:Msg_angular_Dictionary forKey:@"angular"];
     
-    
     NSLog(@"%@",[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]);
     
-    //[LH_WS.ws sendText:[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]];
-    
+    [LH_WS.ws sendText:[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]];
+}
+
+- (NSString*)returnTEST {
+    return @"HEJ";
 }
 
 
