@@ -141,6 +141,7 @@
     _ballControl.frame = tempImageFrame;
 }
 
+#pragma mark - /cmd_vel json message
 -(void)cmd_vel: (CGPoint) locationLH {
     
     double vel_x;
@@ -160,8 +161,8 @@
     
     NSMutableDictionary *Msg_Dictionary = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *Msg_linear_Dictionary = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *Msg_angular_Dictionary = [[NSMutableDictionary alloc] init];
-    
+    NSMutableDictionary *Msg_angular_Dictionary = [[NSMutableDictionary alloc] init];    
+  
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:vel_x] forKey:@"x"];
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:0] forKey:@"y"];
     [Msg_linear_Dictionary setObject:[NSNumber numberWithDouble:0] forKey:@"z"];
@@ -172,6 +173,7 @@
     
     [Msg_Dictionary setObject:Msg_linear_Dictionary forKey:@"linear"];
     [Msg_Dictionary setObject:Msg_angular_Dictionary forKey:@"angular"];
+    
     
     NSLog(@"%@",[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]);
     
@@ -187,7 +189,7 @@
 }
 
 
-
+#pragma mark - Notification Center
 //NSNotification sendWebSocket
 - (void) deallocJoystickNotification {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
