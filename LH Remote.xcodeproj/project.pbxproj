@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420482531668CF7000C5FF65 /* battery_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4204824F1668CF7000C5FF65 /* battery_indicator.png */; };
+		420482541668CF7000C5FF65 /* LH_ServerNamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420482511668CF7000C5FF65 /* LH_ServerNamesViewController.m */; };
+		420482551668CF7000C5FF65 /* MySettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 420482521668CF7000C5FF65 /* MySettings.plist */; };
+		420482591668E9FA00C5FF65 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 420482571668E9FA00C5FF65 /* warning.png */; };
+		4204825A1668E9FA00C5FF65 /* warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420482581668E9FA00C5FF65 /* warning@2x.png */; };
+		420482611668EB5600C5FF65 /* ekg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4204825F1668EB5600C5FF65 /* ekg.png */; };
+		420482621668EB5600C5FF65 /* ekg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420482601668EB5600C5FF65 /* ekg@2x.png */; };
 		4243B8881667BF7E00190FED /* LH_Settings_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4243B8871667BF7E00190FED /* LH_Settings_ViewController.m */; };
 		4243B88C1667BFAE00190FED /* LH_Status_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4243B88B1667BFAE00190FED /* LH_Status_ViewController.m */; };
 		4243B8A31667C52D00190FED /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4243B8A21667C52D00190FED /* libUnittWebSocketClient.a */; };
@@ -44,6 +51,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4204824F1668CF7000C5FF65 /* battery_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_indicator.png; sourceTree = "<group>"; };
+		420482501668CF7000C5FF65 /* LH_ServerNamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LH_ServerNamesViewController.h; sourceTree = "<group>"; };
+		420482511668CF7000C5FF65 /* LH_ServerNamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LH_ServerNamesViewController.m; sourceTree = "<group>"; };
+		420482521668CF7000C5FF65 /* MySettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MySettings.plist; sourceTree = "<group>"; };
+		420482571668E9FA00C5FF65 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		420482581668E9FA00C5FF65 /* warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning@2x.png"; sourceTree = "<group>"; };
+		4204825F1668EB5600C5FF65 /* ekg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ekg.png; sourceTree = "<group>"; };
+		420482601668EB5600C5FF65 /* ekg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ekg@2x.png"; sourceTree = "<group>"; };
 		4243B8861667BF7E00190FED /* LH_Settings_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LH_Settings_ViewController.h; sourceTree = "<group>"; };
 		4243B8871667BF7E00190FED /* LH_Settings_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LH_Settings_ViewController.m; sourceTree = "<group>"; };
 		4243B88A1667BFAD00190FED /* LH_Status_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LH_Status_ViewController.h; sourceTree = "<group>"; };
@@ -125,6 +140,11 @@
 		4243B88D1667BFE100190FED /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4204824F1668CF7000C5FF65 /* battery_indicator.png */,
+				4204825F1668EB5600C5FF65 /* ekg.png */,
+				420482601668EB5600C5FF65 /* ekg@2x.png */,
+				420482571668E9FA00C5FF65 /* warning.png */,
+				420482581668E9FA00C5FF65 /* warning@2x.png */,
 				4243B8B81667C7A700190FED /* gear2.png */,
 				4243B8B91667C7A700190FED /* gear2@2x.png */,
 				4243B8B41667C78A00190FED /* controller.png */,
@@ -232,6 +252,9 @@
 				E180A8EF166804C8005DDD68 /* MyRosbridge.m */,
 				4243B88D1667BFE100190FED /* Images */,
 				E15B29B51667BA9700E636E9 /* Supporting Files */,
+				420482501668CF7000C5FF65 /* LH_ServerNamesViewController.h */,
+				420482511668CF7000C5FF65 /* LH_ServerNamesViewController.m */,
+				420482521668CF7000C5FF65 /* MySettings.plist */,
 			);
 			path = "LH Remote";
 			sourceTree = "<group>";
@@ -322,6 +345,12 @@
 				4281F54D1667FD670089D103 /* icon_goldborder_114px.png in Resources */,
 				E180A8F21668071C005DDD68 /* arrows_4.png in Resources */,
 				E180A8F4166808EB005DDD68 /* ball.png in Resources */,
+				420482531668CF7000C5FF65 /* battery_indicator.png in Resources */,
+				420482551668CF7000C5FF65 /* MySettings.plist in Resources */,
+				420482591668E9FA00C5FF65 /* warning.png in Resources */,
+				4204825A1668E9FA00C5FF65 /* warning@2x.png in Resources */,
+				420482611668EB5600C5FF65 /* ekg.png in Resources */,
+				420482621668EB5600C5FF65 /* ekg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +368,7 @@
 				4243B8881667BF7E00190FED /* LH_Settings_ViewController.m in Sources */,
 				4243B88C1667BFAE00190FED /* LH_Status_ViewController.m in Sources */,
 				E1E0A2881667FB16009B66F1 /* LH_WebSocket.m in Sources */,
+				420482541668CF7000C5FF65 /* LH_ServerNamesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

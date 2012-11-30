@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79" y="-386"/>
+            <point key="canvasLocation" x="-79" y="-570"/>
         </scene>
         <!--Connection View Controller - Second-->
         <scene sceneID="13">
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="22"/>
+            <point key="canvasLocation" x="-79" y="26"/>
         </scene>
         <!--Status View Controller - Status-->
         <scene sceneID="j5j-Ts-J8V">
@@ -158,13 +158,46 @@
                     <view key="view" contentMode="scaleToFill" id="2nY-GN-FBE">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="battery_indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="cue-VC-wKo">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="D7f-Hb-AU5"/>
+                                    <constraint firstAttribute="height" constant="275" id="RHu-uR-Eiz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-JD-RLl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="84m-tq-gy4"/>
+                                    <constraint firstAttribute="height" constant="21" id="Omq-Qo-eul"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Battery level" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJG-02-wzC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="E80-Yf-qVb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uoh-JD-RLl" firstAttribute="leading" secondItem="2nY-GN-FBE" secondAttribute="leading" constant="132" id="2q7-g8-vsm"/>
+                            <constraint firstItem="cue-VC-wKo" firstAttribute="centerX" secondItem="2nY-GN-FBE" secondAttribute="centerX" type="default" id="OyK-Md-1Eh"/>
+                            <constraint firstAttribute="bottom" secondItem="uoh-JD-RLl" secondAttribute="bottom" constant="180" id="Uoo-WS-qsk"/>
+                            <constraint firstItem="cue-VC-wKo" firstAttribute="centerY" secondItem="2nY-GN-FBE" secondAttribute="centerY" type="default" id="ahj-32-nKN"/>
+                            <constraint firstItem="nJG-02-wzC" firstAttribute="leading" secondItem="2nY-GN-FBE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="anX-G9-dFS"/>
+                            <constraint firstItem="nJG-02-wzC" firstAttribute="top" secondItem="2nY-GN-FBE" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ty1-le-FVm"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Status" id="h8s-Vt-GXL"/>
+                    <tabBarItem key="tabBarItem" title="Status" image="ekg.png" id="h8s-Vt-GXL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz4-cW-cYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="636"/>
+            <point key="canvasLocation" x="-79" y="636"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="lZY-aD-AtL">
@@ -173,13 +206,88 @@
                     <view key="view" contentMode="scaleToFill" id="rdt-7s-yMz">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyv-97-h7c">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Select ROS_bridge server">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pX8-PW-Lpt" kind="modal" id="Uej-uf-lpT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zyv-97-h7c" firstAttribute="top" secondItem="rdt-7s-yMz" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1AM-NS-dTH"/>
+                            <constraint firstItem="Zyv-97-h7c" firstAttribute="centerX" secondItem="rdt-7s-yMz" secondAttribute="centerX" type="default" id="Q3i-GE-d9Y"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear2.png" id="eS5-Gs-TOz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg2-2h-nTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79" y="921"/>
+            <point key="canvasLocation" x="-87" y="1289"/>
+        </scene>
+        <!--Server Names View Controller - Root View Controller-->
+        <scene sceneID="F78-hr-NIt">
+            <objects>
+                <tableViewController id="Wfa-MW-P7T" customClass="LH_ServerNamesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="EGw-dG-fg4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServerNameCell" id="Zs8-KV-jC0">
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wfa-MW-P7T" id="QMo-ef-mhF"/>
+                            <outlet property="delegate" destination="Wfa-MW-P7T" id="xvw-ac-T2b"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="g6J-Fo-gL3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Vad-lT-dGH">
+                            <connections>
+                                <action selector="doneButton:" destination="Wfa-MW-P7T" id="qFK-0b-s7h"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZBU-JB-1jN">
+                            <connections>
+                                <action selector="addServer:" destination="Wfa-MW-P7T" id="YGa-Oa-S0l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oe-Rd-3JM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944" y="1287"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3h8-GW-x47">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="pX8-PW-Lpt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bGX-vR-Mii">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Wfa-MW-P7T" kind="relationship" relationship="rootViewController" id="YwS-WU-h4b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24D-YR-zi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408" y="1287"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -204,42 +312,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="battery_indicator.png" width="140" height="295"/>
         <image name="connection.png" width="28" height="20"/>
         <image name="controller.png" width="30" height="23"/>
+        <image name="ekg.png" width="26" height="22"/>
         <image name="gear2.png" width="26" height="28"/>
     </resources>
-    <classes>
-        <class className="LH_Connection_ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Connection_ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Clear:"/>
-                <relationship kind="action" name="Connect:"/>
-                <relationship kind="action" name="Disconnect:"/>
-                <relationship kind="action" name="Send:"/>
-                <relationship kind="outlet" name="WebSocketMessageField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="connectStatus" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="ipTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textMessage" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="LH_Joystick_ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Joystick_ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="CoordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="backgroundControl" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="ballControl" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="LH_Settings_ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Settings_ViewController.h"/>
-        </class>
-        <class className="LH_Status_ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LH_Status_ViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
