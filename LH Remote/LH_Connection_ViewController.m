@@ -19,6 +19,8 @@
     [super viewDidLoad];
     _textMessage.delegate = self;
     _ipTextField.delegate = self;
+    
+    _ipTextField.text = @"192.168.0.8:9090";
 	// Do any additional setup after loading the view, typically from a nib.
     [self initConnectionNotification];
     

@@ -22,6 +22,8 @@
     float joystickMaxX;
     float velocityMaxX;
     float velocityMaxTH;
+    float deadzoneX;
+    float deadzoneY;
 }
 
 @end
@@ -36,11 +38,14 @@
     tabbar = CGRectMake(0, 480, 320, 49);
     JoyStickFrame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - tabbar.size.height);
     
-    joystickMaxY = 150;
-    joystickMaxX = 100;
+    joystickMaxY = 130;
+    joystickMaxX = 80;
     
-    velocityMaxX = 0.8;
-    velocityMaxTH = 0.8;
+    velocityMaxX = 0.6;
+    velocityMaxTH = 0.6;
+    
+    deadzoneX = 40;
+    deadzoneY = 40;
     
     joystickCenter.x = JoyStickFrame.size.width/2;
     joystickCenter.y = JoyStickFrame.size.height/2; //Removes the tabbar
@@ -84,16 +89,16 @@
     if (!pauseTimer) {
         locationUB = [touchMain locationInView: touchMain.view];
         
-        if (locationUB.x >= (joystickCenter.x + joystickMaxX)) {
-            locationUB.x = joystickCenter.x + joystickMaxX;
-        } else if (locationUB.x <= (joystickCenter.x - joystickMaxX)){
-            locationUB.x = joystickCenter.x - joystickMaxX;
+        if (locationUB.x >= (joystickCenter.x + joystickMaxX + deadzoneX/2)) {
+            locationUB.x = joystickCenter.x + joystickMaxX + deadzoneX/2;
+        } else if (locationUB.x <= (joystickCenter.x - joystickMaxX - deadzoneX/2)){
+            locationUB.x = joystickCenter.x - joystickMaxX - deadzoneX/2;
         }
         
-        if (locationUB.y >= (joystickCenter.y + joystickMaxY)) {
-            locationUB.y = joystickCenter.y + joystickMaxY;
-        } else if (locationUB.y <= (joystickCenter.y - joystickMaxY)){
-            locationUB.y = joystickCenter.y - joystickMaxY;
+        if (locationUB.y >= (joystickCenter.y + joystickMaxY + deadzoneY/2)) {
+            locationUB.y = joystickCenter.y + joystickMaxY + deadzoneY/2;
+        } else if (locationUB.y <= (joystickCenter.y - joystickMaxY - deadzoneY/2)){
+            locationUB.y = joystickCenter.y - joystickMaxY - deadzoneY/2;
         }
         
         tempImageFrame = _ballControl.frame;
@@ -107,16 +112,16 @@
     if (!pauseTimer) {
         locationULH = [touchMain locationInView: touchMain.view];
         
-        if (locationULH.x >= (joystickCenter.x + joystickMaxX)) {
-            locationULH.x = joystickCenter.x + joystickMaxX;
-        } else if (locationULH.x <= (joystickCenter.x - joystickMaxX)){
-            locationULH.x = joystickCenter.x - joystickMaxX;
+        if (locationULH.x >= (joystickCenter.x + joystickMaxX + deadzoneX/2)) {
+            locationULH.x = joystickCenter.x + joystickMaxX + deadzoneX/2;
+        } else if (locationULH.x <= (joystickCenter.x - joystickMaxX - deadzoneX/2)){
+            locationULH.x = joystickCenter.x - joystickMaxX - deadzoneX/2;
         }
         
-        if (locationULH.y >= (joystickCenter.y + joystickMaxY)) {
-            locationULH.y = joystickCenter.y + joystickMaxY;
-        } else if (locationULH.y <= (joystickCenter.y - joystickMaxY)){
-            locationULH.y = joystickCenter.y - joystickMaxY;
+        if (locationULH.y >= (joystickCenter.y + joystickMaxY + deadzoneY/2)) {
+            locationULH.y = joystickCenter.y + joystickMaxY + deadzoneY/2;
+        } else if (locationULH.y <= (joystickCenter.y - joystickMaxY - deadzoneY/2)){
+            locationULH.y = joystickCenter.y - joystickMaxY - deadzoneY/2;
         }
         
         [self cmd_vel:locationULH];
@@ -157,12 +162,33 @@
         vel_x = 0.0;
         ang_z = 0.0;
     } else {
-        vel_x = -(velocityMaxX*(locationLH.y - joystickCenter.y))/joystickMaxY;
-        ang_z = -(velocityMaxTH*(locationLH.x - joystickCenter.x))/joystickMaxX;
+        
+        NSLog(@"%f",fabs(locationLH.y - joystickCenter.y));
+        if (fabs(locationLH.y - joystickCenter.y) > (deadzoneY/2)) {
+            if (locationLH.y > joystickCenter.y) {
+                vel_x = -(velocityMaxX*(locationLH.y - joystickCenter.y - deadzoneY/2))/joystickMaxY;
+            } else {
+                vel_x = -(velocityMaxX*(locationLH.y - joystickCenter.y + deadzoneY/2))/joystickMaxY;
+            }
+        } else {
+            vel_x = 0.0;
+        }
+        
+        if (fabs(locationLH.x - joystickCenter.x) > (deadzoneX/2)) {
+            if (locationLH.x > joystickCenter.x) {
+                ang_z = -(velocityMaxTH*(locationLH.x - joystickCenter.x - deadzoneX/2))/joystickMaxX;
+            } else{
+                ang_z = -(velocityMaxTH*(locationLH.x - joystickCenter.x + deadzoneX/2))/joystickMaxX;
+            }
+            
+        } else{
+            ang_z = 0.0;
+        }
+        
     }
     
     NSString *coord = [NSString stringWithFormat:@"X = %.4f, TH = %.4f", vel_x, ang_z];
-    NSLog(@"%@",coord);
+    //NSLog(@"%@",coord);
     _CoordTextField.text = [NSString stringWithFormat:@"%@",coord];
     
     NSMutableDictionary *Msg_Dictionary = [[NSMutableDictionary alloc] init];
@@ -180,14 +206,11 @@
     [Msg_Dictionary setObject:Msg_linear_Dictionary forKey:@"linear"];
     [Msg_Dictionary setObject:Msg_angular_Dictionary forKey:@"angular"];
     
-    NSLog(@"%@",[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]);
+    //NSLog(@"%@",[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]);
     
     [LH_WS.ws sendText:[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]];
 }
 
-- (NSString*)returnTEST {
-    return @"HEJ";
-}
 
 
 - (void)didReceiveMemoryWarning
