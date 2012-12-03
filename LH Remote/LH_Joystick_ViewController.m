@@ -20,6 +20,8 @@
     CGRect JoyStickFrame;
     float joystickMaxY;
     float joystickMaxX;
+    float velocityMaxX;
+    float velocityMaxTH;
 }
 
 @end
@@ -36,6 +38,9 @@
     
     joystickMaxY = 150;
     joystickMaxX = 100;
+    
+    velocityMaxX = 0.8;
+    velocityMaxTH = 0.8;
     
     joystickCenter.x = JoyStickFrame.size.width/2;
     joystickCenter.y = JoyStickFrame.size.height/2; //Removes the tabbar
@@ -152,8 +157,8 @@
         vel_x = 0.0;
         ang_z = 0.0;
     } else {
-        vel_x = -(locationLH.y - joystickCenter.y)/joystickMaxY;
-        ang_z = -(locationLH.x - joystickCenter.x)/joystickMaxX;
+        vel_x = -(velocityMaxX*(locationLH.y - joystickCenter.y))/joystickMaxY;
+        ang_z = -(velocityMaxTH*(locationLH.x - joystickCenter.x))/joystickMaxX;
     }
     
     NSString *coord = [NSString stringWithFormat:@"X = %.4f, TH = %.4f", vel_x, ang_z];
