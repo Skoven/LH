@@ -84,6 +84,14 @@
     
 }
 
+- (void)viewDidUnload
+{
+    NSLog(@"TEST VIEWDIDUNLOAD");
+
+}
+
+
+
 
 - (void) UpdateBall:(NSTimer *) timer {
     if (!pauseTimer) {
