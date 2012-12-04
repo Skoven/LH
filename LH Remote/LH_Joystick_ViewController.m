@@ -84,7 +84,19 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated]; // don't forget to call super, this is important
+    
+    [self JoyStickReset];
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Touch handling
 - (void) UpdateBall:(NSTimer *) timer {
     if (!pauseTimer) {
         locationUB = [touchMain locationInView: touchMain.view];
@@ -138,6 +150,10 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    [self JoyStickReset];
+}
+
+-(void)JoyStickReset {
     pauseTimer = TRUE;
     locationULH.x = joystickCenter.x;
     locationULH.y = joystickCenter.y;
@@ -146,10 +162,7 @@
     
     [self cmd_vel:locationULH];
     
-    tempImageFrame = _ballControl.frame;
-    tempImageFrame.origin.x = locationUB.x-_ballControl.frame.size.width/2;
-    tempImageFrame.origin.y = locationUB.y-_ballControl.frame.size.height/2;
-    _ballControl.frame = tempImageFrame;
+    _ballControl.frame = CGRectMake(joystickCenter.x - _ballControl.frame.size.width/2, joystickCenter.y - _ballControl.frame.size.height/2, _ballControl.frame.size.width, _ballControl.frame.size.height);
 }
 
 #pragma mark - /cmd_vel json message
@@ -158,12 +171,12 @@
     double vel_x;
     double ang_z;
     
+   
     if (locationLH.x == joystickCenter.x && locationLH.y == joystickCenter.y) {
         vel_x = 0.0;
         ang_z = 0.0;
     } else {
         
-        NSLog(@"%f",fabs(locationLH.y - joystickCenter.y));
         if (fabs(locationLH.y - joystickCenter.y) > (deadzoneY/2)) {
             if (locationLH.y > joystickCenter.y) {
                 vel_x = -(velocityMaxX*(locationLH.y - joystickCenter.y - deadzoneY/2))/joystickMaxY;
@@ -184,8 +197,9 @@
         } else{
             ang_z = 0.0;
         }
-        
     }
+    
+    NSLog(@"%f",vel_x);
     
     NSString *coord = [NSString stringWithFormat:@"X = %.4f, TH = %.4f", vel_x, ang_z];
     //NSLog(@"%@",coord);
@@ -210,15 +224,6 @@
     
     [LH_WS.ws sendText:[myRos publishTopic:@"/cmd_vel" Message:Msg_Dictionary]];
 }
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - Notification Center
 //NSNotification sendWebSocket
@@ -254,7 +259,6 @@
                 [LH_WS.ws sendText:NotificationMSG];
                 NSLog(@"WebSocket Sent: %@",NotificationMSG);
                 break;
-                
             default:
                 break;
         }
