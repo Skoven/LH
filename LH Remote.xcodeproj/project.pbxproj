@@ -26,6 +26,7 @@
 		4243B8B71667C78A00190FED /* controller@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4243B8B51667C78A00190FED /* controller@2x.png */; };
 		4243B8BA1667C7A700190FED /* gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4243B8B81667C7A700190FED /* gear2.png */; };
 		4243B8BB1667C7A700190FED /* gear2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4243B8B91667C7A700190FED /* gear2@2x.png */; };
+		427F458B166F7B3E00DF8E88 /* gmapping.png in Resources */ = {isa = PBXBuildFile; fileRef = 427F458A166F7B3D00DF8E88 /* gmapping.png */; };
 		4281F54B1667FD5B0089D103 /* icon_goldborder_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 4281F54A1667FD5B0089D103 /* icon_goldborder_57px.png */; };
 		4281F54D1667FD670089D103 /* icon_goldborder_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 4281F54C1667FD670089D103 /* icon_goldborder_114px.png */; };
 		E15B29AF1667BA9700E636E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15B29AE1667BA9700E636E9 /* UIKit.framework */; };
@@ -87,6 +88,7 @@
 		4243B8B51667C78A00190FED /* controller@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controller@2x.png"; sourceTree = "<group>"; };
 		4243B8B81667C7A700190FED /* gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear2.png; sourceTree = "<group>"; };
 		4243B8B91667C7A700190FED /* gear2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear2@2x.png"; sourceTree = "<group>"; };
+		427F458A166F7B3D00DF8E88 /* gmapping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gmapping.png; sourceTree = "<group>"; };
 		4281F54A1667FD5B0089D103 /* icon_goldborder_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_goldborder_57px.png; sourceTree = "<group>"; };
 		4281F54C1667FD670089D103 /* icon_goldborder_114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_goldborder_114px.png; sourceTree = "<group>"; };
 		E15B29AA1667BA9700E636E9 /* LH Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LH Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 		4243B88D1667BFE100190FED /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				427F458A166F7B3D00DF8E88 /* gmapping.png */,
 				4204824F1668CF7000C5FF65 /* battery_indicator.png */,
 				4204825F1668EB5600C5FF65 /* ekg.png */,
 				420482601668EB5600C5FF65 /* ekg@2x.png */,
@@ -352,6 +355,7 @@
 				4204825A1668E9FA00C5FF65 /* warning@2x.png in Resources */,
 				420482611668EB5600C5FF65 /* ekg.png in Resources */,
 				420482621668EB5600C5FF65 /* ekg@2x.png in Resources */,
+				427F458B166F7B3E00DF8E88 /* gmapping.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +463,7 @@
 		E15B29DD1667BA9700E636E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Simon Bøgh (S7HT3JPR5T)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LH Remote/LH Remote-Prefix.pch";
 				INFOPLIST_FILE = "LH Remote/LH Remote-Info.plist";
@@ -468,6 +473,7 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "159B4B71-6081-4E59-A3B1-8748113D4168";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -475,6 +481,7 @@
 		E15B29DE1667BA9700E636E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Simon Bøgh (S7HT3JPR5T)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LH Remote/LH Remote-Prefix.pch";
 				INFOPLIST_FILE = "LH Remote/LH Remote-Info.plist";
@@ -484,6 +491,7 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "159B4B71-6081-4E59-A3B1-8748113D4168";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
